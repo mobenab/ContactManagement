@@ -23,14 +23,19 @@
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/tvContact"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="5dp"
             android:layout_weight="0.1"
+            android:height="80dp"
             android:gravity="center|center_horizontal|center_vertical"
             android:padding="15dp"
-            android:text="@string/contacts" />
+            android:text="@string/contacts"
+            android:textSize="24sp" />
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvList"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="0.9" />
