@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 import java.util.List;
@@ -31,7 +32,17 @@ public class AdapterList extends RecyclerView.Adapter<AdapterList.MyViewHolder> 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         Contact contact = contacts.get(position);
-        holder.tvContact.setText(contact.getFirstname() + " " + contact.getLastname());
+        holder.tvName.setText(contact.getFullName());
+        holder.tvWorkphone.setText(contact.getWorkphone());
+        holder.tvEmail.setText(contact.getEmail());
+        holder.tvCellphone.setText(contact.getCellphone());
+
+        holder.ckCell.setChecked(contact.isPhoneDefault());
+        holder.ckWork.setChecked(!contact.isPhoneDefault());
+
+        holder.ckCell.setEnabled(false);
+        holder.ckWork.setEnabled(false);
+
     }
 
     @Override
@@ -40,11 +51,17 @@ public class AdapterList extends RecyclerView.Adapter<AdapterList.MyViewHolder> 
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        TextView tvContact;
+        TextView tvName, tvCellphone, tvWorkphone, tvEmail;
+        CheckBox ckCell, ckWork;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            tvContact = itemView.findViewById(R.id.tvContact);
+            tvName = itemView.findViewById(R.id.tvName);
+            tvCellphone = itemView.findViewById(R.id.tvCellphone);
+            tvWorkphone = itemView.findViewById(R.id.tvWorkphone);
+            tvEmail = itemView.findViewById(R.id.tvEmail);
+            ckCell = itemView.findViewById(R.id.ckCell);
+            ckWork = itemView.findViewById(R.id.ckWork);
         }
     }
 }

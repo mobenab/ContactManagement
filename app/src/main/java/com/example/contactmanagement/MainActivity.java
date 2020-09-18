@@ -38,12 +38,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private List<Contact> generateList() {
-        return new ArrayList<Contact>(Arrays.asList(
-                new Contact("William", "Hudon", "(819) 668-1234", "(819) 123-4567", "william.hudon@gmail.com"),
-                new Contact("Alexis", "Lecuyer", "(819) 668-1235", "(819) 123-4568", "alexis.lecuyer@gmail.com"),
-                new Contact("Simon", "Bolduc", "(819) 668-1236", "(819) 123-4569", "simon.bolduc@gmail.com"),
-                new Contact("Raphael", "Cere", "(819) 668-1237", "(819) 123-4560", "raph.cere@gmail.com"),
-                new Contact("Antoine", "St-Arnaud", "(819) 668-1238", "(819) 123-4561", "antoine.arnaud@gmail.com")
+        return new ArrayList<>(Arrays.asList(
+                new Contact("William", "Hudon", "(819) 668-1234", "(819) 123-4567", "william.hudon@gmail.com", true),
+                new Contact("Alexis", "Lecuyer", "(819) 668-1235", "(819) 123-4568", "alexis.lecuyer@gmail.com", false),
+                new Contact("Simon", "Bolduc", "(819) 668-1236", "(819) 123-4569", "simon.bolduc@gmail.com", true),
+                new Contact("Raphael", "Cere", "(819) 668-1237", "(819) 123-4560", "raph.cere@gmail.com", false),
+                new Contact("Antoine", "St-Arnaud", "(819) 668-1238", "(819) 123-4561", "antoine.arnaud@gmail.com", true)
         ));
     }
 }

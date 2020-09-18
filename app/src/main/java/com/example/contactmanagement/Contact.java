@@ -2,13 +2,33 @@ package com.example.contactmanagement;
 
 public class Contact {
     String firstname, lastname, cellphone, workphone, email;
+    boolean phoneDefault;
 
-    public Contact(String firstname, String lastname, String cellphone, String workphone, String email) {
+    /***
+     *
+     * @param firstname firstname
+     * @param lastname lastname
+     * @param cellphone cellphone
+     * @param workphone workphone
+     * @param email email address
+     * @param phoneDefault true = cellphone, false = workphone
+     */
+
+    public Contact(String firstname, String lastname, String cellphone, String workphone, String email, boolean phoneDefault) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.cellphone = cellphone;
         this.workphone = workphone;
         this.email = email;
+        this.phoneDefault = phoneDefault;
+    }
+
+    public boolean isPhoneDefault() {
+        return phoneDefault;
+    }
+
+    public void setPhoneDefault(boolean phoneDefault) {
+        this.phoneDefault = phoneDefault;
     }
 
     public String getFirstname() {
@@ -49,5 +69,9 @@ public class Contact {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getFullName(){
+        return firstname + " " + lastname;
     }
 }
