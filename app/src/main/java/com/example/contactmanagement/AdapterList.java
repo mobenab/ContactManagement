@@ -1,6 +1,8 @@
 package com.example.contactmanagement;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +21,11 @@ public class AdapterList extends RecyclerView.Adapter<AdapterList.MyViewHolder> 
 
     public AdapterList(List<Contact> contacts) {
         this.contacts = contacts;
+    }
+
+    public AdapterList(List<Contact> contacts, Context context) {
+        this.contacts = contacts;
+        this.context = context;
     }
 
     @NonNull
@@ -62,6 +69,16 @@ public class AdapterList extends RecyclerView.Adapter<AdapterList.MyViewHolder> 
             tvEmail = itemView.findViewById(R.id.tvEmail);
             ckCell = itemView.findViewById(R.id.ckCell);
             ckWork = itemView.findViewById(R.id.ckWork);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String name = contacts.get(getLayoutPosition()).getFullName();
+                    Intent intent = new Intent(context, ActivityAddModify.class);
+                    intent.putExtra("name", name);
+                    ((Activity) context).startActivity(intent);
+                }
+            });
         }
     }
 }
